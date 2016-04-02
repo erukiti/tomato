@@ -51,10 +51,10 @@ describe('reducers', function() {
             timer: 2
         }
         const obj = Object.assign({}, initState)
-        const newState = todoApp(obj, { type: act.TIMER_INTERVAL, now: 10 })
+        const newState = todoApp(obj, { type: act.TIMER_INTERVAL, now: 11 })
         assert.deepEqual(initState, obj)
-        assert(newState.start === 8)
-        assert(newState.current === 0)
+        assert(newState.start === 0)
+        assert(newState.current === 2)
         assert(newState.timer === 2)
 
     })

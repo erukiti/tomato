@@ -17,13 +17,29 @@ export default function todoApp(state = initialState, action) {
                 start: action.now,
                 current: state.timer,
                 timer: state.timer
-
             }
         case act.TIMER_INTERVAL:
-            return {
-                start: state.start,
-                current: state.start === 0 ? state.timer : state.timer - (action.now - state.start),
-                timer: state.timer
+            if (state.start === 0) {
+                return {
+                    start: state.start,
+                    current: state.timer,
+                    timer: state.timer
+                }
+            } else {
+                const remain = state.timer - (action.now - state.start)
+                if (remain > 0) {
+                    return {
+                        start: state.start,
+                        current: remain,
+                        timer: state.timer
+                    }
+                } else {
+                    return {
+                        start: 0,
+                        current: state.timer,
+                        timer: state.timer
+                    }
+                }
             }
         default:
             return state

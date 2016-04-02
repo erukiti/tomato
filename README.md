@@ -8,6 +8,27 @@ React + Redux の習作で作ってるポモドーロタイマーです。
 * Redux
 * VSCode ready
 
+# 動かし方
+
+```
+$ npm i
+$ npm start
+```
+
+他にも
+
+```
+$ npm run release
+```
+
+や
+
+```
+$ npm test
+```
+
+などもございます。
+
 # License
 
 * MIT License
