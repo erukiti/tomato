@@ -1,0 +1,6 @@
+[submodule "vendor/photon"]
+	path = vendor/photon
+	url = https://github.com/connors/photon.git
+[submodule "vendor/Font-Awesome"]
+	path = vendor/Font-Awesome
+	url = https://github.com/FortAwesome/Font-Awesome.git

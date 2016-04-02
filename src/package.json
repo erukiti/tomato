@@ -1,0 +1,5 @@
+{
+    "name": "tomato",
+    "version": "1.0.0",
+    "main": "browser/app.js"
+}
