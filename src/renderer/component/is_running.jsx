@@ -8,10 +8,10 @@ class IsRunning extends React.Component {
         if (this.props.isRunning) {
             mode = this.props.isWorking ? '作業中' : '休憩中'
         } else {
-            mode = 'ストップ中'
+            mode = ''
         }
 
-        return <div>{mode}</div>
+        return <span>{mode}</span>
     }
 }
 

@@ -6,7 +6,7 @@ class Timer extends React.Component {
     render() {
         const min = ` ${parseInt(this.props.time / 1000 / 60)}`.substr(-2)
         const sec = `0${parseInt(this.props.time / 1000) % 60}`.substr(-2)
-        return <div>{min}:{sec}</div>
+        return <div className="timer">{min}:{sec}</div>
     }
 }
 

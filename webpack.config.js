@@ -67,6 +67,9 @@ const config = {
             from: 'src/app.ico',
             to: '../'
         }, {
+            from: 'src/icon.png',
+            to: '../'
+        }, {
             from: 'src/browser/tray-icon.png',
             to: '../browser'
         }]),
