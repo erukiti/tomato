@@ -84,4 +84,46 @@ describe('reducers', function() {
         assert(newState.pomodoro === 1)
     })
 
+    it('TIMER_STOP', function() {
+        const initState = {
+            isWorking: false,
+            start: 500,
+            current: 1,
+            timer: 50,
+            countWorking: 200,
+            countInterval: 50,
+            pomodoro: 0
+        }
+        const obj = Object.assign({}, initState)
+        const newState = todoApp(obj, { type: act.TIMER_STOP, now: 549 })
+        assert.deepEqual(initState, obj)
+        assert(newState.isWorking === false)
+        assert(newState.start === 0)
+        assert(newState.current === 1)
+        assert(newState.timer === 1)
+        assert(newState.pomodoro === 0)
+    })
+
+    it('RESET', function() {
+        const initState = {
+            isWorking: false,
+            start: 500,
+            current: 548,
+            timer: 50,
+            countWorking: 200,
+            countInterval: 50,
+            pomodoro: 0
+        }
+        const obj = Object.assign({}, initState)
+        const newState = todoApp(obj, { type: act.RESET, now: 549 })
+        assert.deepEqual(initState, obj)
+        assert(newState.isWorking === true)
+        assert(newState.start === 0)
+        assert(newState.current === 25 * 1000)
+        assert(newState.timer === 25 * 1000)
+        assert(newState.countWorking === 25 * 1000)
+        assert(newState.countInterval === 5 * 1000)
+        assert(newState.pomodoro === 0)
+    })
+
 })

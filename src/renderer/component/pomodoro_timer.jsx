@@ -14,7 +14,9 @@ class PomodoroTimer extends React.Component {
             <Times times={this.props.times} />
             <Timer time={this.props.time} />
             <IsRunning isRunning={this.props.isRunning} isWorking={this.props.isWorking} />
-            <button onClick={e => this.props.onStart(e)}>Start</button>
+            <button onClick={e => this.props.onStart(e)}>スタート</button>
+            <button onClick={e => this.props.onStop(e)}>一時停止</button>
+            <button onClick={e => this.props.onReset(e)}>リセット</button>
         </div>
     }
 }
@@ -32,6 +34,12 @@ function mapDispatchToProps(dispatch) {
     return {
         onStart: () => {
             dispatch(act.timerStart())
+        },
+        onStop: () => {
+            dispatch(act.timerStop())
+        },
+        onReset: () => {
+            dispatch(act.reset())
         }
     }
 }
