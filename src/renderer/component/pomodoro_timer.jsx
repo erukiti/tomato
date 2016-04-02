@@ -14,8 +14,7 @@ class PomodoroTimer extends React.Component {
             <Times times={this.props.times} />
             <Timer time={this.props.time} />
             <IsRunning isRunning={this.props.isRunning} isWorking={this.props.isWorking} />
-            <button onClick={e => this.props.onStart(e)}>スタート</button>
-            <button onClick={e => this.props.onStop(e)}>一時停止</button>
+            <button onClick={e => this.props.isRunning ? this.props.onStop(e) : this.props.onStart(e)}>{this.props.isRunning ? '一時停止' : 'スタート'}</button>
             <button onClick={e => this.props.onReset(e)}>リセット</button>
         </div>
     }

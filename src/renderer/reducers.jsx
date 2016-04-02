@@ -3,10 +3,10 @@ import act from './actions'
 const initialState = {
     isWorking: true,
     start: 0,
-    current: 25 * 1000,
-    timer: 25 * 1000,
-    countWorking: 25 * 1000,
-    countInterval: 5 * 1000,
+    current: 25 * 60 * 1000,
+    timer: 25 * 60 * 1000,
+    countWorking: 25 * 60 * 1000,
+    countInterval: 5 * 60 * 1000,
     pomodoro: 0
 }
 
