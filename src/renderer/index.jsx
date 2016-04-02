@@ -8,8 +8,6 @@ import App from './component/app'
 import TomatoApp from './reducers'
 
 require('./index.scss')
-require('../../vendor/photon/sass/photon.scss')
-require('../../vendor/Font-Awesome/scss/font-awesome.scss')
 
 const store = createStore(TomatoApp)
 

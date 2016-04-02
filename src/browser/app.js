@@ -14,7 +14,14 @@
 
 const app = require('electron').app
 const BrowserWindow = require('electron').BrowserWindow
-const client = require('electron-connect').client
+
+let client
+try {
+    client = require('electron-connect').client
+} catch (error) {
+    client = null
+}
+
 
 app.on('window-all-closed', () => {
     app.quit
@@ -31,5 +38,7 @@ app.on('ready', () => {
     win.on('closed', () => {
         win = null
     })
-    client.create(win)
+    if (client) {
+        client.create(win)
+    }
 })
