@@ -13,32 +13,39 @@ const initialState = {
 export default function todoApp(state = initialState, action) {
     switch (action.type) {
         case act.TIMER_START:
-            return {
-                start: action.now,
-                current: state.timer,
-                timer: state.timer
+            {
+                const newState = Object.assign({}, state)
+                newState.start = action.now
+                newState.current = state.timer
+                return newState
             }
         case act.TIMER_INTERVAL:
-            if (state.start === 0) {
-                return {
-                    start: state.start,
-                    current: state.timer,
-                    timer: state.timer
+            {
+                const newState = Object.assign({}, state)
+                if (state.start === 0) {
+                    newState.current = state.timer
+                    return newState
                 }
-            } else {
+
                 const remain = state.timer - (action.now - state.start)
                 if (remain > 0) {
-                    return {
-                        start: state.start,
-                        current: remain,
-                        timer: state.timer
-                    }
+                    newState.current = remain
+                    return newState
+                }
+
+                if (state.isWorking) {
+                    newState.isWorking = false
+                    newState.start = 0
+                    newState.current = state.countInterval
+                    newState.timer = state.countInterval
+                    return newState
                 } else {
-                    return {
-                        start: 0,
-                        current: state.timer,
-                        timer: state.timer
-                    }
+                    newState.isWorking = true
+                    newState.start = 0
+                    newState.current = state.countWorking
+                    newState.timer = state.countWorking
+                    newState.pomodoro = state.pomodoro + 1
+                    return newState
                 }
             }
         default:
